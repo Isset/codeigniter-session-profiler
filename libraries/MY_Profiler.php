@@ -12,7 +12,7 @@
  *
  * @author  Jeroen v.d Gulik, Isset Internet Professionals
  * @link    http://isset.nl/
- * @version	0.2
+ * @version 0.2
  * @package Codeigniter Session Profiler
  * @license MIT License
  *
@@ -48,10 +48,9 @@ class MY_Profiler extends CI_Profiler
 	 * @return object
 	 * @see    CI_Profiler::__construct()
 	 */
- 	public function __construct($config = array())
+	public function __construct($config = array())
 	{
 		$this->_available_sections[] = 'session';
-
 		parent::__construct($config);
 	}
 
@@ -63,51 +62,51 @@ class MY_Profiler extends CI_Profiler
 	 * @return string The HTML containing the session data.
 	 * @see    CI_Profiler::_compile_session()
 	 */
-    public function _compile_session()
+	public function _compile_session()
 	{
-        $output  = PHP_EOL . PHP_EOL;
-        $output .= '<fieldset style="border:1px solid #009999;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee">';
-        $output .= PHP_EOL;
-        $output .= '<legend style="color:#009999;">&nbsp;&nbsp;' . 'SESSION DATA' . '&nbsp;&nbsp;</legend>';
-        $output .= PHP_EOL;
+		$output  = PHP_EOL . PHP_EOL;
+		$output .= '<fieldset style="border:1px solid #009999;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee">';
+		$output .= PHP_EOL;
+		$output .= '<legend style="color:#009999;">&nbsp;&nbsp;' . 'SESSION DATA' . '&nbsp;&nbsp;</legend>';
+		$output .= PHP_EOL;
 
-        if ( !is_object($this->CI->session) )
+		if ( !is_object($this->CI->session) )
 		{
-            $output .= "<div style='color:#009999;font-weight:normal;padding:4px 0 4px 0'>".'No SESSION data exists'."</div>";
-        } 
+			$output .= "<div style='color:#009999;font-weight:normal;padding:4px 0 4px 0'>".'No SESSION data exists'."</div>";
+		} 
 		else
 		{
-		    $output .= PHP_EOL . PHP_EOL . "<table cellpadding='4' cellspacing='1' border='0' width='100%'>" . PHP_EOL;
-            $sess    = get_object_vars($this->CI->session);
+			$output .= PHP_EOL . PHP_EOL . "<table cellpadding='4' cellspacing='1' border='0' width='100%'>" . PHP_EOL;
+			$sess    = get_object_vars($this->CI->session);
 
-            foreach ( $sess['userdata'] as $key => $val )
+			foreach ( $sess['userdata'] as $key => $val )
 			{
-                if ( !is_numeric($key) )
+				if ( !is_numeric($key) )
 				{
-                    $key = "'" . $key . "'";
-                }
+					$key = "'" . $key . "'";
+				}
 
-                $output .= "<tr><td width='50%' style='color:#000;background-color:#ddd;'>&#36;_SESSION[" . $key . "]&nbsp;&nbsp; </td><td width='50%' style='color:#009999;font-weight:normal;background-color:#ddd;'>";
+				$output .= "<tr><td width='50%' style='color:#000;background-color:#ddd;'>&#36;_SESSION[" . $key . "]&nbsp;&nbsp; </td><td width='50%' style='color:#009999;font-weight:normal;background-color:#ddd;'>";
 
-                if ( is_array($val) )
+				if ( is_array($val) )
 				{
-                    $output .= "<pre>" . htmlspecialchars(stripslashes(print_r($val, true))) . "</pre>";
-                } 
+					$output .= "<pre>" . htmlspecialchars(stripslashes(print_r($val, true))) . "</pre>";
+				} 
 				else
 				{
-                    $output .= htmlspecialchars(stripslashes($val));
-                }
+					$output .= htmlspecialchars(stripslashes($val));
+				}
 
-                $output .= "</td></tr>" . PHP_EOL;
-            }
+				$output .= "</td></tr>" . PHP_EOL;
+			}
 
 			$output .= "</table>" . PHP_EOL;
-        }
+		}
 
-        $output .= "</fieldset>";
+		$output .= "</fieldset>";
 
-        return $output;    
-    }
+		return $output;    
+	}
 }
 
 /* End of file MY_Profiler.php */

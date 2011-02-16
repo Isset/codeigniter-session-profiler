@@ -5,13 +5,13 @@
  * Shows both CI session data and custom session data
 
 Note: I did not write the original implementation, I just adapted it
-for CodeIgniter >= 2.0 . You can find the implementation for CodeIgniter < 2.0 [here][http://codeigniter.com/forums/viewthread/60066/]
+for CodeIgniter >= 2.0 . You can find the implementation for CodeIgniter < 2.0 [here](http://codeigniter.com/forums/viewthread/60066/)
 
 ## Requirements
 
 * Codeigniter (Reactor) >= 2.0
 
-### Installation
+## Installation
 
 Drop the libraries/MY_Profiler.php file into your application/libraries folder. 
 If you did not change the MY_ prefix, it should autoload. If you did change the MY_ prefix
