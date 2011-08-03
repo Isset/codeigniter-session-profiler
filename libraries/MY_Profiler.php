@@ -12,7 +12,7 @@
  *
  * @author  Jeroen v.d Gulik, Isset Internet Professionals
  * @link    http://isset.nl/
- * @version 0.2
+ * @version 0.3
  * @package Codeigniter Session Profiler
  * @license MIT License
  *
@@ -70,7 +70,7 @@ class MY_Profiler extends CI_Profiler
 		$output .= '<legend style="color:#009999;">&nbsp;&nbsp;' . 'SESSION DATA' . '&nbsp;&nbsp;</legend>';
 		$output .= PHP_EOL;
 
-		if ( !is_object($this->CI->session) )
+		if ( ! property_exists($this->CI, 'session') OR ! is_object($this->CI->session) )
 		{
 			$output .= "<div style='color:#009999;font-weight:normal;padding:4px 0 4px 0'>".'No SESSION data exists'."</div>";
 		} 
